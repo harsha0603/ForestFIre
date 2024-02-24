@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #cdeccd; /* Pale Green Background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        form:hover {
+            background-color: #e0f3e0; /* Lighter Green on Hover */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+        }
+
+        select {
+            background-color: #fff;
+            color: #333;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Forest Fire Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="temperature">Temperature:</label>
+        <input type="number" name="temperature" required>
+
+        <label for="humidity">Humidity:</label>
+        <input type="number" name="humidity" required>
+
+        <label for="wind_speed">Wind Speed:</label>
+        <input type="number" name="wind_speed" required>
+
+        <label for="precipitation">Precipitation:</label>
+        <input type="number" name="precipitation" required>
+
+        <label for="soil_moisture">Soil Moisture:</label>
+        <input type="number" name="soil_moisture" required>
+
+        <label for="topography">Topography:</label>
+        <input type="number" name="topography" required>
+
+        <label for="vegetation_type">Vegetation Type:</label>
+        <select name="vegetation_type" required>
+            <option value="Coniferous">Coniferous</option>
+            <option value="Deciduous">Deciduous</option>
+        </select>
+
+        <input type="submit" value="Predict" onmouseover="hoverButton()" onmouseout="unhoverButton()">
+    </form>
+
+    <script>
+        function hoverButton() {
+            document.querySelector('input[type="submit"]').style.backgroundColor = '#2980b9';
+        }
+
+        function unhoverButton() {
+            document.querySelector('input[type="submit"]').style.backgroundColor = '#3498db';
+        }
+    </script>
+</body>
+</html>

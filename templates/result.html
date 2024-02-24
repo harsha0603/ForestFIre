@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #cdeccd; /* Pale Green Background */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background-color 0.3s;
+        }
+
+        body:hover {
+            background-color: #e0f3e0; /* Lighter Green on Hover */
+        }
+
+        h1 {
+            color: #006400; /* Dark Green */
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #006400;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #004d00; /* Darker Green on hover */
+        }
+
+        .comments {
+            margin-top: 30px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Forest Fire Prediction Result</h1>
+    <p><strong>Prediction:</strong> {% if prediction == 1 %}Yes{% else %}No{% endif %}</p>
+    <p><strong>Probability of forest fire:</strong> {{ "{:.2%}".format(probability) }}</p>
+    <p><a href="/" style="font-size: 18px;">Go back to input</a></p>
+
+    <div class="comments">
+        {% if prediction == 1 %}
+            <p>🔥 The prediction indicates a potential for a forest fire. Take precautions and stay informed!</p>
+            <p>🚒 Firefighters are like real-life superheroes. Report any signs of fire to help protect our environment!</p>
+        {% else %}
+            <p>🌲 Great news! The prediction suggests no immediate risk of a forest fire. Continue to care for nature!</p>
+            <p>🌳 Every small effort contributes to a healthier planet. Thank you for being an eco-hero!</p>
+        {% endif %}
+    </div>
+</body>
+</html>
